@@ -1,0 +1,15 @@
+<article class=" flex flex-col items-center justify-center shadow rounded-[15px]">
+  <div class="flex flex-col items-center mb-[20px]">
+    <img class="w-[170px] h-[130px] px-[15px] pt-[5px]" [src]="item.imageUrl" alt="cart-image">
+    <span class="font-semibold whitespace-nowrap text-sm">{{item.name}}</span>
+    <span class="">{{item.price | currency : '₸'}}</span>
+  </div>
+  <div class="flex lg:flex-row flex-col justify-between xl:gap-6 lg:pl-2">
+    <a class="text-secondary-text whitespace-nowrap text-[12px]  lg:mt-10 mt-3 mb-3" href=""><u>Подробнее о
+        товаре</u></a>
+    <button
+      class="flex items-center justify-center xl:h-[64px] xl:w-[64px]  lg:h-[48px] lg:w-[48px] bg-white-gray rounded-full mr-[5px] mb-[15px] shadow transition-all ease-in-out hover:bg-orange">
+      <img class="size-6 mr-1" src="../../../../assets/icons/basket-cart.svg" alt="">
+    </button>
+  </div>
+</article>

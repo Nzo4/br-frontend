@@ -1,0 +1,71 @@
+<header class="container z-10 flex items-center justify-between sticky top-0 mt-2 rounded-t-lg shadow px-2 bg-white ">
+  <a href="/">
+    <img class="ml-10 shrink-0" src="../../../../assets/images/logo.svg" alt="BR HOME Logo" width="115" height="55"
+      loading="lazy">
+  </a>
+  <button (click)="toggleCatalogButton()"
+    class="lg:flex xl:w-[15vw]  xl:justify-center items-center hidden justify-between gap-5 bg-white-gray rounded-lg w px-4">
+    <img src="../../../../assets/icons/burger.svg" alt="burger">
+    <span>Каталог</span>
+  </button>
+
+  <nav [@fadeInOut]="(buttonSearch$ | async)? 'hidden' : 'visible'"
+    [style.display]="(buttonSearch$ | async)?'none' : 'flex'">
+    <ul class="lg:flex gap-9 font-semibold whitespace-nowrap hidden ">
+      <li><a class="hover:text-orange transition-all ease-in" routerLinkActive="active" routerLink="/"
+          [routerLinkActiveOptions]="{exact:true}">Главная</a></li>
+      <li><a class="hover:text-orange transition-all ease-in" routerLinkActive="active" routerLink="/news">Новости</a>
+      </li>
+      <li><a class="hover:text-orange transition-all ease-in" routerLinkActive="active"
+          routerLink="/feedback">Отзывы</a></li>
+      <li><a class="hover:text-orange transition-all ease-in" routerLinkActive="active" routerLink="/about">О
+          нас</a></li>
+    </ul>
+  </nav>
+
+
+  <!--Input search -->
+  <div class="" [@fadeInOut]="(buttonSearch$ | async) ? 'visible' : 'hidden'"
+    [style.display]="(buttonSearch$ | async) ? 'flex ' : 'none'">
+    <input
+      class="lg:w-[349.36px] relative w-[36vw] lg:top-0 top-12 placeholder:text-[10px]  lg:placeholder:text-[16px] rounded-md"
+      placeholder="Введите товар для поиска.." type="text">
+  </div>
+  <!--end search -->
+
+  <div class="flex items-center  gap-[10px]">
+    <!-- Mobile version catalog button -->
+    <div class="lg:hidden ">
+      <button (click)="toggleCatalogButton()"
+        class="flex items-center justify-center bg-primary size-8 bg-white-gray rounded-full ">
+        <svg class="" width="26" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 1.33333C0 0.979711 0.18649 0.640573 0.518443 0.390525C0.850396 0.140476 1.30062 0 1.77007 0H26.5511C27.0205 0 27.4708 0.140476 27.8027 0.390525C28.1347 0.640573 28.3212 0.979711 28.3212 1.33333C28.3212 1.68696 28.1347 2.02609 27.8027 2.27614C27.4708 2.52619 27.0205 2.66667 26.5511 2.66667H1.77007C1.30062 2.66667 0.850396 2.52619 0.518443 2.27614C0.18649 2.02609 0 1.68696 0 1.33333ZM0 8C0 7.64638 0.18649 7.30724 0.518443 7.05719C0.850396 6.80714 1.30062 6.66667 1.77007 6.66667H26.5511C27.0205 6.66667 27.4708 6.80714 27.8027 7.05719C28.1347 7.30724 28.3212 7.64638 28.3212 8C28.3212 8.35362 28.1347 8.69276 27.8027 8.94281C27.4708 9.19286 27.0205 9.33333 26.5511 9.33333H1.77007C1.30062 9.33333 0.850396 9.19286 0.518443 8.94281C0.18649 8.69276 0 8.35362 0 8ZM0 14.6667C0 14.313 0.18649 13.9739 0.518443 13.7239C0.850396 13.4738 1.30062 13.3333 1.77007 13.3333H26.5511C27.0205 13.3333 27.4708 13.4738 27.8027 13.7239C28.1347 13.9739 28.3212 14.313 28.3212 14.6667C28.3212 15.0203 28.1347 15.3594 27.8027 15.6095C27.4708 15.8595 27.0205 16 26.5511 16H1.77007C1.30062 16 0.850396 15.8595 0.518443 15.6095C0.18649 15.3594 0 15.0203 0 14.6667Z"
+            fill="#0D0D0D" />
+        </svg>
+      </button>
+    </div>
+    <!-- end mobile version catalog button-->
+
+    <button (click)="toggleSearchButton()" class="flex items-center justify-center rounded-full size-8 bg-white-gray">
+      <img width="19px" height="19px" src="../../../../assets/icons/search.svg" alt="search button">
+    </button>
+
+    <div class="lg:flex hidden gap-2 whitespace-nowrap">
+      <img src="../../../../assets/icons/basket.svg" alt="my basket">
+      <span>Моя корзина (0)</span>
+    </div>
+
+    <!-- Mobile verion basket button -->
+    <button class="lg:hidden flex items-center justify-center size-8 bg-white-gray  rounded-full ">
+      <svg class="" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2.72618 1.72254L4.34454 11.3215C4.37409 11.5226 4.47511 11.7067 4.62952 11.8408C4.79239 11.9836 5.00357 12.0608 5.22126 12.057H14.7937C14.9767 12.057 15.1551 12.0002 15.3035 11.8944C15.452 11.7887 15.563 11.6395 15.6208 11.4679L18.2353 3.71709C18.2789 3.58763 18.2908 3.44977 18.2699 3.31487C18.2491 3.17998 18.1961 3.05191 18.1153 2.94123C18.0345 2.83055 17.9283 2.74042 17.8054 2.67826C17.6824 2.61611 17.5463 2.58372 17.4082 2.58375H4.63823L4.32711 0.732157C4.29517 0.520604 4.18416 0.328559 4.01599 0.193904C3.85659 0.0652137 3.65618 -0.00344605 3.45039 0.000133192H1.72135C1.49021 0.000133192 1.26854 0.090867 1.10511 0.252374C0.941671 0.413881 0.849854 0.632932 0.849854 0.861338C0.849854 1.08974 0.941671 1.30879 1.10511 1.4703C1.26854 1.63181 1.49021 1.72254 1.72135 1.72254H2.72618ZM5.94547 10.3346L4.92844 4.30616H16.1994L14.1654 10.3346H5.94547ZM7.82179 15.5018C7.82179 15.9586 7.63816 16.3967 7.31128 16.7197C6.98441 17.0428 6.54108 17.2242 6.07881 17.2242C5.61654 17.2242 5.1732 17.0428 4.84633 16.7197C4.51946 16.3967 4.33582 15.9586 4.33582 15.5018C4.33582 15.045 4.51946 14.6069 4.84633 14.2839C5.1732 13.9609 5.61654 13.7794 6.07881 13.7794C6.54108 13.7794 6.98441 13.9609 7.31128 14.2839C7.63816 14.6069 7.82179 15.045 7.82179 15.5018ZM15.6652 15.5018C15.6652 15.9586 15.4816 16.3967 15.1547 16.7197C14.8278 17.0428 14.3845 17.2242 13.9222 17.2242C13.46 17.2242 13.0166 17.0428 12.6898 16.7197C12.3629 16.3967 12.1793 15.9586 12.1793 15.5018C12.1793 15.045 12.3629 14.6069 12.6898 14.2839C13.0166 13.9609 13.46 13.7794 13.9222 13.7794C14.3845 13.7794 14.8278 13.9609 15.1547 14.2839C15.4816 14.6069 15.6652 15.045 15.6652 15.5018Z"
+          fill="#0D0D0D" />
+      </svg>
+    </button>
+    <!-- end mobile version basket button-->
+
+  </div>
+
+</header>

@@ -1,0 +1,10 @@
+<section class="container mt-12">
+  <h2 class="font-medium text-[20px] text-gray mb-[20px]">Наши партнеры</h2>
+  <div class="grid lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid-rows-2 gap-3">
+    <div
+      class="flex items-center justify-center p-10 rounded-lg bg-white-gray opacity-25 hover:opacity-100 transition-all ease-in-out"
+      *ngFor="let partner of partners">
+      <img class="size-20 rounded-md " [src]="partner" alt="">
+    </div>
+  </div>
+</section>

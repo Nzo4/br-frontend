@@ -1,0 +1,8 @@
+<section class="container mt-12">
+  <h2 class="font-medium text-[20px] text-gray mb-[20px]">Новые товары</h2>
+  <div class="grid lg:grid-cols-5 grid-cols-1 p-2 gap-5">
+    <app-cart *ngFor="let item of furniture$ | async" [item]="item" />
+  </div>
+  <div *ngIf="isLoading$ | async" class="text-center">Идет загрузка списка товаров...</div>
+  <div *ngIf="error$ | async" class="text-center">Произошла ошибка при загрузке товаров, Попробуйте позднее!</div>
+</section>
