@@ -12,10 +12,10 @@ import { getSubcategory } from 'src/app/store/actions/subcategories.actions';
 
 
 @Component({
-  selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
+  selector: 'app-category-block',
+  templateUrl: './category-block.component.html',
 })
-export class CatalogComponent implements OnInit {
+export class CategoryBlock implements OnInit {
   buttonCatalog$: Observable<boolean>;
   categories$: Observable<Category[]>;
   isLoading$: Observable<boolean>;

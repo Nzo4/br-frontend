@@ -5,7 +5,7 @@ import * as CategoriesActions from '../actions/categories.action';
 import { catchError, map, of, switchMap } from "rxjs";
 
 @Injectable()
-export class CategoryEffect {
+export class CategoryEffects {
   getCategories$ = createEffect(() => this.actions$.pipe(
     ofType(CategoriesActions.getCategory),
     switchMap(() => this.categoryService.getAllCategory()

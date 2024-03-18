@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
-import { CatalogComponent } from './components/catalog/catalog.component';
+import { CategoryBlock } from './components/category-block/category-block.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
-import { CatalogInfoComponent } from './components/catalog-info/catalog-info.component';
+import { SubcategoryBlock } from './components/subcategory-block/subcategory-block.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    CatalogComponent,
+    CategoryBlock,
     OverlayComponent,
-    CatalogInfoComponent
+    SubcategoryBlock
   ],
   exports: [
     HeaderComponent,
-    CatalogComponent,
+    CategoryBlock,
     OverlayComponent
   ],
   imports: [

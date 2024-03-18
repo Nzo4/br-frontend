@@ -3,10 +3,10 @@ import { Observable } from 'rxjs';
 import { Subcategory } from 'src/app/core/models/subcategory.model';
 
 @Component({
-  selector: 'app-catalog-info',
-  templateUrl: './catalog-info.component.html',
+  selector: 'app-subcategory-block',
+  templateUrl: './subcategory-block.component.html',
 })
-export class CatalogInfoComponent {
+export class SubcategoryBlock {
   @Input() subcategories$ !: Observable<Subcategory[]>;
 
   constructor() { }
