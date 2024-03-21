@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forFeature('subcategories', subcategoryReducers),
     EffectsModule.forRoot(),
     EffectsModule.forFeature([CategoryEffects, SubcategoryEffects]),
-
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode(),

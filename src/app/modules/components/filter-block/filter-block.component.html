@@ -1,0 +1,16 @@
+<section class="w-[320px] min-w-[320px] block">
+  <div *ngFor="let category of categories$ | async">
+    <div (click)="getSubcategory(category.slug)"
+      class="flex items-center justify-between flex-1 transition-all ease-in-out group hover:bg-orange">
+      <span class="font-medium group-hover:text-white">{{category.name}}</span>
+      <img
+        src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='none'%3e%3cpath%20fill='%23000'%20fill-rule='evenodd'%20d='M4.98%206.313a.5.5%200%200%201%20.707%200L8%208.626l2.313-2.313a.5.5%200%201%201%20.707.707L8.354%209.687a.5.5%200%200%201-.707%200L4.98%207.02a.5.5%200%200%201%200-.707Z'%20clip-rule='evenodd'/%3e%3c/svg%3e"
+        width="24" height="24" alt="">
+    </div>
+    <div *ngIf="currentSlug === category.slug && checked">
+      <div *ngFor="let subcategory of subcategories$ | async">
+        <span>{{subcategory.name}}</span>
+      </div>
+    </div>
+  </div>
+</section>

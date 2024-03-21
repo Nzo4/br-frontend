@@ -1,9 +1,12 @@
 <div [ngClass]="(buttonCatalog$ | async) ? '' : 'hidden'"
   class="container flex sticky top-12 bottom-0 right-0 left-0  z-20 bg-white h-[50vh]">
   <div class="flex flex-col items-center w-[40vw] border-r border-r-white-gray pt-10 gap-3 ">
+    <div *ngIf="error$ | async">Произошла ошибка, попробуйте позднее</div>
+    <div *ngIf="isLoading$ | async">Идет загрузка!</div>
     <ul class="hover:bg-orange hover:text-white w-full" *ngFor="let category of categories$ | async; let i = index ">
       <a>
-        <li (click)="getSubcategory(category.slug)" class="pl-8 text-[16px]  font-medium ">
+        <li [ngClass]="currentCategory === category.slug ? 'bg-orange text-white w-full' : ''"
+          (click)="getSubcategory(category.slug)" class="pl-8 text-[16px]  font-medium ">
           {{category.name}}
         </li>
       </a>

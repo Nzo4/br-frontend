@@ -22,8 +22,10 @@ export class CategoryBlock implements OnInit {
   error$: Observable<string | null>;
 
   subcategory$: Observable<Subcategory[]>;
-  subcategoryIsLoading: Observable<boolean>;
-  subcategoryError: Observable<string | null>;
+  subcategoryIsLoading$: Observable<boolean>;
+  subcategoryError$: Observable<string | null>;
+
+  currentCategory: string = '';
 
   constructor(private headerService: HeaderService, private store: Store<AppStateModel>) {
     this.buttonCatalog$ = this.headerService.buttonCatalogState$;
@@ -32,8 +34,8 @@ export class CategoryBlock implements OnInit {
     this.error$ = this.store.pipe(select(CategorySelectors.selectFeatureError));
 
     this.subcategory$ = this.store.pipe(select(SubcategorySelectors.selectFeatureSubcategories));
-    this.subcategoryIsLoading = this.store.pipe(select(SubcategorySelectors.selectFeatureIsLoading));
-    this.subcategoryError = this.store.pipe(select(SubcategorySelectors.selectFeatureError));
+    this.subcategoryIsLoading$ = this.store.pipe(select(SubcategorySelectors.selectFeatureIsLoading));
+    this.subcategoryError$ = this.store.pipe(select(SubcategorySelectors.selectFeatureError));
   }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class CategoryBlock implements OnInit {
   }
 
   getSubcategory(categorySlug: string) {
+    this.currentCategory = categorySlug;
     this.store.dispatch(getSubcategory({ categorySlug }))
   }
 
