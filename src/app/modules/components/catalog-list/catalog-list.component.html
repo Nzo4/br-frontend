@@ -1,0 +1,9 @@
+<section class="lg:grid xl:grid-cols-3  lg:grid-cols-2 gap-5 hidden">
+  <div *ngFor="let category of categories$ | async" class="flex flex-col justify-center items-center group">
+    <a href="">
+      <img class="h-full w-full rounded-[22px] bg-white-gray object-contain" [src]="category.imageCategory" alt="">
+    </a>
+    <a class="mt-5 text-dark group-hover:text-orange transition-all ease-linear	 duration-200"
+      href="">{{category.name}}</a>
+  </div>
+</section>

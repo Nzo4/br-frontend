@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +11,13 @@ export class HeaderService {
   public buttonSearchState$: Observable<boolean> = this.buttonSearchStateSubject.asObservable();
   public buttonCatalogState$: Observable<boolean> = this.buttonCatalogStateSubject.asObservable();
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.buttonCatalogStateSubject.next(false);
+      }
+    });
+  }
 
   toggleSearchButtonState() {
     const currentState = this.buttonSearchStateSubject.value;
@@ -21,5 +28,7 @@ export class HeaderService {
     const currentState = this.buttonCatalogStateSubject.value;
     this.buttonCatalogStateSubject.next(!currentState);
   }
+
+
 
 }

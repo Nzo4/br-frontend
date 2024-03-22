@@ -7,6 +7,7 @@ import { FilterBlockComponent } from '../../components/filter-block/filter-block
 import { FurnitureListComponent } from '../../components/furniture-list/furniture-list.component';
 import { CatalogOverviewComponent } from '../catalog-overview/catalog-overview.component';
 import { CatalogListComponent } from '../../components/catalog-list/catalog-list.component';
+import { ShortCartComponent } from '../../components/short-cart/short-cart.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CatalogListComponent } from '../../components/catalog-list/catalog-list
     FilterBlockComponent,
     FurnitureListComponent,
     CatalogOverviewComponent,
-    CatalogListComponent
+    CatalogListComponent,
+    ShortCartComponent
   ],
 
   imports: [

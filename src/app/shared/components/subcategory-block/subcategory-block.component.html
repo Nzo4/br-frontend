@@ -1,4 +1,5 @@
 <ul class="grid grid-cols-2 grid-rows-3 gap-2">
-  <li *ngFor="let subcategory of subcategories$ | async" class="text-[10px] whitespace-nowrap lg:text-[13px]">
-    {{subcategory.name}}</li>
+  <li *ngFor="let subcategory of subcategories" class="text-[10px] whitespace-nowrap lg:text-[13px]">
+    <a [routerLink]="['/catalog', subcategory.parentCategory, subcategory.slug]">{{subcategory.name}}</a>
+  </li>
 </ul>

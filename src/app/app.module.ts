@@ -8,9 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from './shared/shared.module';
 import { categoryReducers } from './store/reducers/categories.reducer';
-import { subcategoryReducers } from './store/reducers/subcategories.reducer';
 import { CategoryEffects } from './store/effects/categories.effect';
-import { SubcategoryEffects } from './store/effects/subcategories.effect';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -27,9 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     StoreModule.forFeature('categories', categoryReducers),
-    StoreModule.forFeature('subcategories', subcategoryReducers),
     EffectsModule.forRoot(),
-    EffectsModule.forFeature([CategoryEffects, SubcategoryEffects]),
+    EffectsModule.forFeature([CategoryEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode(),

@@ -1,38 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/core/models/category.model';
-import { Subcategory } from 'src/app/core/models/subcategory.model';
-import { getCategory } from 'src/app/store/actions/categories.action';
-import { getSubcategory } from 'src/app/store/actions/subcategories.actions';
 import { AppStateModel } from 'src/app/store/models/app-state.model';
 import { selectFeatureCategories } from 'src/app/store/selectors/categories.selector';
-import { selectFeatureSubcategories } from 'src/app/store/selectors/subcategories.selector';
 
 @Component({
   selector: 'app-filter-block',
+  styleUrls: ['./filter-block.component.scss'],
   templateUrl: './filter-block.component.html',
 })
-export class FilterBlockComponent implements OnInit {
+export class FilterBlockComponent {
   categories$: Observable<Category[]>
-  subcategories$: Observable<Subcategory[]>
-  currentSlug: string = '';
-  checked: boolean = false;
-
+  accordionState: boolean[] = [];
 
   constructor(private store: Store<AppStateModel>) {
     this.categories$ = this.store.pipe(select(selectFeatureCategories));
-    this.subcategories$ = this.store.pipe(select(selectFeatureSubcategories));
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(getCategory());
+  toggleAccordion(index: number) {
+    this.accordionState[index] = !this.accordionState[index];
   }
 
-  getSubcategory(categorySlug: string) {
-    this.currentSlug = categorySlug
-    this.store.dispatch(getSubcategory({ categorySlug }))
-    this.checked = !this.checked;
-  }
+
+
+
 
 }

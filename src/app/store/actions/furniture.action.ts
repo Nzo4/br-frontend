@@ -6,3 +6,8 @@ import { Furniture } from "src/app/core/models/furniture.model";
 export const getFurniture = createAction('[Furniture] Get Furniture');
 export const getFurnitureSuccess = createAction('[Furniture] Get Furniture success', props<{ furniture: Furniture[] }>());
 export const getFurnitureFailure = createAction('[Furniture] Get Furniture failure', props<{ error: string | null }>())
+
+export const getSubcategoryFurniture = createAction('[Furniture] Get Subcategory Furniture', props<{ categorySlug: string, subcategorySlug: string }>());
+export const getSubcategoryFurnitureSuccess = createAction('[Furniture] Get Subcategory Furniture success', props<{ furniture: Furniture[] }>());
+export const getSubcategoryFurnitureFailure = createAction('[Furniture] Get Subcategory Furniture failure', props<{ error: string | null }>())
+

@@ -5,14 +5,14 @@
     <div *ngIf="isLoading$ | async">Идет загрузка!</div>
     <ul class="hover:bg-orange hover:text-white w-full" *ngFor="let category of categories$ | async; let i = index ">
       <a>
-        <li [ngClass]="currentCategory === category.slug ? 'bg-orange text-white w-full' : ''"
-          (click)="getSubcategory(category.slug)" class="pl-8 text-[16px]  font-medium ">
+        <li [ngClass]=" currentCategory === category.slug  ? 'bg-orange text-white w-full' : ''"
+          (click)="getSubcategory(category)" class="pl-8 text-[16px]  font-medium ">
           {{category.name}}
         </li>
       </a>
     </ul>
   </div>
   <div class="w-[60vw] md:ml-[120px] ml-[10px] py-10 ">
-    <app-subcategory-block [subcategories$]="subcategory$" class="" />
+    <app-subcategory-block [subcategories]="subcategories" />
   </div>
 </div>

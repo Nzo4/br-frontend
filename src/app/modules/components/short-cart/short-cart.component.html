@@ -1,0 +1,13 @@
+<article class="flex flex-col shadow">
+  <img [src]="item.imageUrl" alt="">
+  <span>{{item.name}}</span>
+  <span>{{item.price}}</span>
+  <div *ngFor="let characteristic of item.description | keyvalue; let i = index" class="flex flex-col justify-between">
+    <span *ngIf="i < 3">{{ characteristic.value }}</span>
+  </div>
+
+  <button class="flex items-center justify-center gap-2 border border-orange rounded-lg"><img
+      src="../../../../assets/icons/basket.svg" alt="">В
+    корзину</button>
+
+</article>

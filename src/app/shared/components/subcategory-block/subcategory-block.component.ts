@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Subcategory } from 'src/app/core/models/subcategory.model';
 
 @Component({
@@ -7,7 +6,7 @@ import { Subcategory } from 'src/app/core/models/subcategory.model';
   templateUrl: './subcategory-block.component.html',
 })
 export class SubcategoryBlock {
-  @Input() subcategories$ !: Observable<Subcategory[]>;
+  @Input() subcategories !: Subcategory[];
 
   constructor() { }
 

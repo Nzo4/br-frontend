@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: ':category',
     component: CatalogOverviewComponent
+  },
+  {
+    path: ':category/:subcategory',
+    component: CatalogOverviewComponent
   }
 ];
 
