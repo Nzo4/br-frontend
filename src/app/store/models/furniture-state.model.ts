@@ -6,3 +6,8 @@ export interface FurnitureStateModel {
   error: string | null,
 };
 
+export interface FurnitureOneStateModel {
+  furniture: Furniture,
+  isLoading: boolean,
+  error: string | null,
+}

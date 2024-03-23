@@ -7,6 +7,15 @@ import { Furniture } from '../models/furniture.model';
   providedIn: 'root'
 })
 export class FurnitureService {
+  private _item!: Furniture;
+
+  public get item() {
+    return this._item;
+  }
+
+  public set item(item: Furniture) {
+    this._item = item;
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +34,8 @@ export class FurnitureService {
   getAllFurnitureFromSubcategory(categorySlug: string, subcategorySlug: string): Observable<Furniture[]> {
     return this.http.get<Furniture[]>(`/api/${categorySlug}/${subcategorySlug}/furniture`);
   }
+
+
 
 
 }

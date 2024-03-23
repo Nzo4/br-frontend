@@ -8,6 +8,11 @@ import { FurnitureListComponent } from '../../components/furniture-list/furnitur
 import { CatalogOverviewComponent } from '../catalog-overview/catalog-overview.component';
 import { CatalogListComponent } from '../../components/catalog-list/catalog-list.component';
 import { ShortCartComponent } from '../../components/short-cart/short-cart.component';
+import { FurnitureDetailsComponent } from '../furniture-details/furniture-details.component';
+import { FullCartComponent } from '../../components/full-cart/full-cart.component';
+import { StoreModule } from '@ngrx/store';
+import { furnitureOneReducers } from 'src/app/store/reducers/furniture.reducer';
+import { FurnitureSidebarComponent } from '../../components/furniture-sidebar/furniture-sidebar.component';
 
 
 @NgModule({
@@ -17,13 +22,17 @@ import { ShortCartComponent } from '../../components/short-cart/short-cart.compo
     FurnitureListComponent,
     CatalogOverviewComponent,
     CatalogListComponent,
-    ShortCartComponent
+    ShortCartComponent,
+    FurnitureDetailsComponent,
+    FullCartComponent,
+    FurnitureSidebarComponent,
   ],
 
   imports: [
     CommonModule,
     CatalogRoutingModule,
     SharedModule,
+    StoreModule.forFeature('furnitureOne', furnitureOneReducers),
   ]
 })
 export class CatalogModule { }

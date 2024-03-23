@@ -1,0 +1,7 @@
+<main *ngIf="(furnitureOne$ |async) as furniture" class="container details-container mt-12">
+  <app-full-cart [item]="furniture" />
+  <app-furniture-sidebar [item]="furniture" />
+</main>
+
+<div class="text-center" *ngIf="isLoading$ | async">Загружаю инфорамацию о товаре!</div>
+<div class="text-center" *ngIf="error$ |async">Не удалось получить данные ,пожалуйста попробуйте позже!</div>

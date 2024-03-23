@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CategoryBlock } from './components/category-block/category-block.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { SubcategoryBlock } from './components/subcategory-block/subcategory-block.component';
+import { TransformKeyPipe } from './pipes/transform-key.pipe';
 
 
 @NgModule({
@@ -12,12 +13,14 @@ import { SubcategoryBlock } from './components/subcategory-block/subcategory-blo
     HeaderComponent,
     CategoryBlock,
     OverlayComponent,
-    SubcategoryBlock
+    SubcategoryBlock,
+    TransformKeyPipe
   ],
   exports: [
     HeaderComponent,
     CategoryBlock,
-    OverlayComponent
+    OverlayComponent,
+    TransformKeyPipe
   ],
   imports: [
     CommonModule,

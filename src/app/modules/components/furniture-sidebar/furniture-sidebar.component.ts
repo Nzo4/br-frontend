@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import { Furniture } from 'src/app/core/models/furniture.model';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
+  selector: 'app-furniture-sidebar',
+  templateUrl: './furniture-sidebar.component.html',
 })
-export class CartComponent {
+export class FurnitureSidebarComponent {
   @Input() item!: Furniture;
 }

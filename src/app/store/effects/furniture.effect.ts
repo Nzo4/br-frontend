@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { FurnitureService } from "src/app/core/services/furniture.service";
 import * as FurnitureActions from "../actions/furniture.action";
 import { catchError, switchMap, map, of } from "rxjs";
-import { Router } from "@angular/router";
 
 @Injectable()
 export class FurnitureEffects {
@@ -27,6 +26,16 @@ export class FurnitureEffects {
     )
   ));
 
-  constructor(private actions$: Actions, private furnitureService: FurnitureService, private router: Router) { }
+  getOneFurniture$ = createEffect(() => this.actions$.pipe(
+    ofType(FurnitureActions.getOneFurniture),
+    switchMap((action) => this.furnitureService.getOneFurniture(action.furnitureSlug)
+      .pipe(
+        map(furniture => FurnitureActions.getOneFurnitureSuccess({ furniture })),
+        catchError(error => of(FurnitureActions.getOneFurnitureFailure({ error })))
+      )
+    )
+  ));
+
+  constructor(private actions$: Actions, private furnitureService: FurnitureService) { }
 }
 

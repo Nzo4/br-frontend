@@ -28,10 +28,8 @@ export class FurnitureListComponent implements OnInit {
   ngOnInit(): void {
     this.route.url.subscribe(segments => {
       this.pathComponent = segments.map(segment => segment.path);
-
       const categorySlug = this.pathComponent[0];
       const subcategorySlug = this.pathComponent[1];
-
       this.store.dispatch(getSubcategoryFurniture({ categorySlug: categorySlug, subcategorySlug: subcategorySlug }));
     });
   }

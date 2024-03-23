@@ -1,0 +1,14 @@
+.details-container {
+  display: grid;
+  grid-template-columns: 1fr 34%;
+  grid-gap: 0 24px
+}
+
+
+
+@media (max-width: 1023px) {
+  .details-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
