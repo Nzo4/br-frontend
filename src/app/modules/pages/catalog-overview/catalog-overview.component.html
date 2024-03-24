@@ -1,4 +1,5 @@
 <main class="container flex lg:flex-row flex-col mt-12">
   <app-filter-block></app-filter-block>
-  <app-furniture-list></app-furniture-list>
+  <app-furniture-list [furniture$]="furniture$" [isLoading$]="isLoading$" [error$]="error$"
+    [furnitureLength]="furnitureLength" />
 </main>

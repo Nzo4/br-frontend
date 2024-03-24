@@ -1,11 +1,11 @@
 <section class="lg:grid xl:grid-cols-3  lg:grid-cols-2 gap-5 grid-cols-1 ">
-
   <div *ngIf="error$ | async">
     <span class="whitespace-nowrap">Пройзошла ошибка , пожалуйста вернитесь на страницу позже</span>
   </div>
   <div *ngIf="isLoading$ |async">
     <span class="whitespace-nowrap">Идет загрузка списка мебели, пожалуйста подождите!</span>
   </div>
-  <app-short-cart *ngFor="let item of furniture$ | async" [item]="item"></app-short-cart>
-
+  <app-short-cart *ngFor="let item of getCurrentPageItems(9)| async" [item]="item"></app-short-cart>
 </section>
+
+<app-pagination [total]="furnitureLength" [limit]="9" (changePage)="onPageChange($event)" />

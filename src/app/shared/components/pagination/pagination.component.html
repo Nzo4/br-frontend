@@ -1,0 +1,6 @@
+<ul class="flex items-center justify-center py-4 gap-7">
+  <li [ngClass]="currentPage === page? 'w-6 h-6 rounded-full bg-orange text-white' : ''"
+    class="flex items-center justify-center cursor-pointer hover:opacity-40" *ngFor="let page of pages"
+    (click)="onPageClick(page)">{{page}}
+  </li>
+</ul>

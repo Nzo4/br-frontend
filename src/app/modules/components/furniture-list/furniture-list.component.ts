@@ -1,36 +1,30 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { Furniture } from 'src/app/core/models/furniture.model';
-import { AppStateModel } from 'src/app/store/models/app-state.model';
-import * as FurnitureSelectors from '../../../store/selectors/furniture.selector';
-import { getSubcategoryFurniture } from 'src/app/store/actions/furniture.action';
-import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-furniture-list',
   templateUrl: './furniture-list.component.html',
 })
-export class FurnitureListComponent implements OnInit {
-  furniture$: Observable<Furniture[]>;
-  isLoading$: Observable<boolean>;
-  error$: Observable<string | null>;
+export class FurnitureListComponent {
+  @Input() furniture$!: Observable<Furniture[]>;
+  @Input() isLoading$!: Observable<boolean>;
+  @Input() error$!: Observable<string | null>;
+  @Input() furnitureLength!: number;
+  currentPage: number = 1;
 
-  pathComponent: any[] = [];
-
-  constructor(private store: Store<AppStateModel>, private route: ActivatedRoute) {
-    this.furniture$ = this.store.pipe(select(FurnitureSelectors.selectFeatureFurniture));
-    this.isLoading$ = this.store.pipe(select(FurnitureSelectors.selectFeatureIsLoading));
-    this.error$ = this.store.pipe(select(FurnitureSelectors.selectFeatureError));
+  onPageChange(page: number): void {
+    this.currentPage = page;
   }
 
-  ngOnInit(): void {
-    this.route.url.subscribe(segments => {
-      this.pathComponent = segments.map(segment => segment.path);
-      const categorySlug = this.pathComponent[0];
-      const subcategorySlug = this.pathComponent[1];
-      this.store.dispatch(getSubcategoryFurniture({ categorySlug: categorySlug, subcategorySlug: subcategorySlug }));
-    });
+  getCurrentPageItems(limit: number): Observable<Furniture[]> {
+    return this.furniture$.pipe(
+      map(furniture => {
+        const startIndex = (this.currentPage - 1) * limit;
+        const endIndex = startIndex + limit;
+        return furniture.slice(startIndex, endIndex);
+      })
+    );
   }
 }

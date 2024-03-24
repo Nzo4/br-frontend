@@ -6,6 +6,7 @@ import { CategoryBlock } from './components/category-block/category-block.compon
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { SubcategoryBlock } from './components/subcategory-block/subcategory-block.component';
 import { TransformKeyPipe } from './pipes/transform-key.pipe';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 @NgModule({
@@ -14,13 +15,15 @@ import { TransformKeyPipe } from './pipes/transform-key.pipe';
     CategoryBlock,
     OverlayComponent,
     SubcategoryBlock,
-    TransformKeyPipe
+    TransformKeyPipe,
+    PaginationComponent
   ],
   exports: [
     HeaderComponent,
     CategoryBlock,
     OverlayComponent,
-    TransformKeyPipe
+    TransformKeyPipe,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
