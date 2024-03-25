@@ -1,0 +1,17 @@
+<main class="container mt-12">
+  <div class="flex flex-col items-center justify-center">
+    <span class="text-center text-xl font-semibold">Ваша корзина</span>
+    <div class="flex">
+      <div class="flex flex-col flex-1">
+        <span>{{basket.length}} Товаров в корзине</span>
+        <div *ngFor="let product of basket"></div>
+      </div>
+      <div class="flex flex-col justify-center">
+        <span>Итого: </span>
+        <button>Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+
+
+</main>
