@@ -1,6 +1,6 @@
-<article>
-  <a [routerLink]="['/catalog', item.category, item.subcategory, item.slug] " [queryParams]="{slug : item.slug}"
-    class="flex flex-col shadow p-2 rounded-lg transition-all ease-linear hover:shadow-lg">
+<article class="flex flex-col shadow p-2 rounded-lg transition-all ease-linear hover:shadow-lg">
+  <a class="flex flex-col" [routerLink]="['/catalog', item.category, item.subcategory, item.slug] "
+    [queryParams]="{slug : item.slug}">
     <img [src]="item.imageUrl" alt="">
     <span class="ml-2 text-lg font-bold ">{{item.price | currency : '₸'}}</span>
     <span class="ml-2  font-medium">{{item.name}}</span>
@@ -9,13 +9,6 @@
       <span class="text-sm text-dark-gray " *ngIf="i < 3">{{ characteristic.key | transformKey }}</span>
       <span class="text-sm" *ngIf="i < 3">{{ characteristic.value }}</span>
     </div>
-
-    <button
-      class="flex items-center justify-center gap-2 transition-all ease-in-out border border-orange rounded-lg mt-2 text-orange group hover:bg-orange hover:text-white">
-      <svg class="fill-orange group-hover:fill-white" width="19" height="17" viewBox="0 0 19 17" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M2.79324 1.70012L4.39842 11.1741C4.42773 11.3726 4.52793 11.5543 4.68108 11.6867C4.84263 11.8276 5.05209 11.9037 5.268 11.9H14.7625C14.944 11.9001 15.1209 11.8439 15.2682 11.7396C15.4154 11.6352 15.5255 11.488 15.5828 11.3186L18.176 3.6687C18.2193 3.54092 18.2311 3.40485 18.2104 3.27172C18.1897 3.13858 18.1372 3.01218 18.057 2.90294C17.9769 2.7937 17.8716 2.70474 17.7496 2.6434C17.6277 2.58205 17.4927 2.55008 17.3557 2.55011H4.68972L4.38113 0.722626C4.34945 0.513826 4.23935 0.324282 4.07254 0.19138C3.91445 0.0643647 3.71567 -0.00340119 3.51155 0.000131458H1.79659C1.56733 0.000131458 1.34747 0.089684 1.18537 0.249089C1.02326 0.408493 0.93219 0.624693 0.93219 0.850125C0.93219 1.07556 1.02326 1.29176 1.18537 1.45116C1.34747 1.61057 1.56733 1.70012 1.79659 1.70012H2.79324ZM5.98632 10.2001L4.97756 4.2501H16.1568L14.1393 10.2001H5.98632ZM7.84736 15.3C7.84736 15.7509 7.66522 16.1833 7.34101 16.5021C7.0168 16.8209 6.57707 17 6.11857 17C5.66006 17 5.22034 16.8209 4.89613 16.5021C4.57192 16.1833 4.38978 15.7509 4.38978 15.3C4.38978 14.8491 4.57192 14.4168 4.89613 14.0979C5.22034 13.7791 5.66006 13.6 6.11857 13.6C6.57707 13.6 7.0168 13.7791 7.34101 14.0979C7.66522 14.4168 7.84736 14.8491 7.84736 15.3ZM15.6269 15.3C15.6269 15.7509 15.4448 16.1833 15.1206 16.5021C14.7964 16.8209 14.3566 17 13.8981 17C13.4396 17 12.9999 16.8209 12.6757 16.5021C12.3515 16.1833 12.1693 15.7509 12.1693 15.3C12.1693 14.8491 12.3515 14.4168 12.6757 14.0979C12.9999 13.7791 13.4396 13.6 13.8981 13.6C14.3566 13.6 14.7964 13.7791 15.1206 14.0979C15.4448 14.4168 15.6269 14.8491 15.6269 15.3Z" />
-      </svg>В корзину</button>
   </a>
+  <app-button [furniture]="item" buttonStyle="btn-cart-full" />
 </article>

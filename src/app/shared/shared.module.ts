@@ -7,6 +7,9 @@ import { OverlayComponent } from './components/overlay/overlay.component';
 import { SubcategoryBlock } from './components/subcategory-block/subcategory-block.component';
 import { TransformKeyPipe } from './pipes/transform-key.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { StoreModule } from '@ngrx/store';
+import { basketReducers } from '../store/reducers/basket.reducer';
+import { ButtonComponent } from './components/button/button.component';
 
 
 @NgModule({
@@ -16,18 +19,21 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     OverlayComponent,
     SubcategoryBlock,
     TransformKeyPipe,
-    PaginationComponent
+    PaginationComponent,
+    ButtonComponent
   ],
   exports: [
     HeaderComponent,
     CategoryBlock,
     OverlayComponent,
     TransformKeyPipe,
-    PaginationComponent
+    PaginationComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    StoreModule.forFeature('basket', basketReducers),
   ]
 })
 export class SharedModule { }

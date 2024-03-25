@@ -11,7 +11,7 @@ import { BasketComponent } from './basket.component';
   ],
   imports: [
     CommonModule,
-    BasketRoutingModule
+    BasketRoutingModule,
   ]
 })
 export class BasketModule { }

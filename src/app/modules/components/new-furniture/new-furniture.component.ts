@@ -25,4 +25,5 @@ export class NewFurnitureComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(getFurniture())
   }
+
 }

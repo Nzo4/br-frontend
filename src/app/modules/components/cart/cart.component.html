@@ -11,9 +11,6 @@
     <a [routerLink]="['/catalog', item.category, item.subcategory, item.slug]" [queryParams]="{slug: item.slug}"
       class="text-secondary-text whitespace-nowrap text-[12px]  lg:mt-10 mt-3 mb-3"><u>Подробнее о
         товаре</u></a>
-    <button
-      class="flex items-center justify-center xl:h-[64px] xl:w-[64px]  lg:h-[48px] lg:w-[48px] bg-white-gray rounded-full mr-[5px] mb-[15px] shadow transition-all ease-in-out hover:bg-orange">
-      <img class="size-6 mr-1" src="../../../../assets/icons/basket-cart.svg" alt="">
-    </button>
+    <app-button [furniture]="item" buttonStyle="btn-cart-mini" />
   </div>
 </article>

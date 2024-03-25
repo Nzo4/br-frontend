@@ -3,8 +3,10 @@
     <span class="text-center text-xl font-semibold">Ваша корзина</span>
     <div class="flex">
       <div class="flex flex-col flex-1">
-        <span>{{basket.length}} Товаров в корзине</span>
-        <div *ngFor="let product of basket"></div>
+        <span> Товаров в корзине</span>
+        <div *ngFor="let product of basket$ | async">
+          {{product.name}}
+        </div>
       </div>
       <div class="flex flex-col justify-center">
         <span>Итого: </span>

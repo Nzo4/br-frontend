@@ -34,4 +34,33 @@
     font-style: normal;
     font-display: swap;
   }
+
+  @layer components {
+    .btn-cart-mini {
+      @apply flex items-center justify-center xl:h-[64px] xl:w-[64px] lg:h-[48px] lg:w-[48px] bg-white-gray rounded-full mr-[5px] mb-[15px] shadow transition-all ease-in-out hover:bg-orange;
+    }
+
+    .btn-cart-mini-active {
+      @apply flex items-center justify-center xl:h-[64px] xl:w-[64px] lg:h-[48px] lg:w-[48px] bg-green rounded-full mr-[5px] mb-[15px] shadow transition-all ease-in-out hover:opacity-40
+    }
+
+    .btn-cart-full {
+      @apply flex items-center justify-center gap-2 transition-all w-full ease-in-out border border-orange rounded-lg mt-2 text-orange;
+    }
+
+    .btn-cart-full-active {
+      @apply flex items-center justify-center gap-2 transition-all w-full ease-in-out border bg-green rounded-lg mt-2 text-white;
+    }
+
+    .btn-cart-full:hover {
+      @apply bg-orange text-white
+    }
+
+    .btn-cart-full:hover svg path {
+      fill: white;
+    }
+
+
+
+  }
 }
