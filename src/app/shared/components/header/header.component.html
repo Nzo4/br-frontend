@@ -1,5 +1,5 @@
 <header class="container z-10 flex items-center justify-between sticky top-0 mt-2 rounded-t-lg shadow px-2 bg-white ">
-  <a href="/">
+  <a routerLink="/">
     <img class="ml-10 shrink-0" src="../../../../assets/images/logo.svg" alt="BR HOME Logo" width="115" height="55"
       loading="lazy">
   </a>
@@ -51,7 +51,7 @@
       <img width="19px" height="19px" src="../../../../assets/icons/search.svg" alt="search button">
     </button>
 
-    <div routerLink="/basket" class="lg:flex hidden gap-2 whitespace-nowrap cursor-pointer">
+    <div routerLink="/basket" class="lg:flex hidden gap-2 whitespace-nowrap cursor-pointer ">
       <img src="../../../../assets/icons/basket.svg" alt="my basket">
       <span>Моя корзина ({{basketCounter}})</span>
     </div>

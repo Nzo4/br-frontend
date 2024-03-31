@@ -9,6 +9,10 @@ module.exports = {
         sans: ['Inter', 'sans-serif']
       }
     },
+    content: {
+      'basket': 'url("/assets/icons/basket-cart.svg")',
+      'active-btn': 'url("/assets/icons/complite.svg")',
+    },
     container: {
       center: true,
       padding: '1rem'

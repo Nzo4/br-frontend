@@ -1,19 +1,21 @@
 <main class="container mt-12">
-  <div class="flex flex-col items-center justify-center">
-    <span class="text-center text-xl font-semibold">Ваша корзина</span>
-    <div class="flex">
-      <div class="flex flex-col flex-1">
-        <span> Товаров в корзине</span>
-        <div *ngFor="let product of basket$ | async">
-          {{product.name}}
-        </div>
-      </div>
-      <div class="flex flex-col justify-center">
-        <span>Итого: </span>
-        <button>Оформить заказ</button>
-      </div>
+  <section class="basket-container">
+    <div *ngIf="countItem > 0" class="flex flex-col flex-1">
+      <span class="mb-5">{{countItem}} товаров в корзине</span>
+      <app-basket-cart *ngFor="let item of basket$ | async" [item]="item" (getCount)="getTotalPrice($event, item)"
+        (deletedItem)="deleteItem(item.name)" />
     </div>
-  </div>
+    <ng-template [ngIf]="countItem === 0">
+      <span class="text-center py-10 ">Вы не добавили ни одного товара!</span>
+    </ng-template>
 
+    <div class="block w-full max-h-28 p-5 bg-white-gray rounded-lg sticky top-16">
+      <div class="flex flex-nowrap gap-5 justify-between mb-5">
+        <span>Итого</span>
+        <span>{{totalPrice | currency : '₸'}}</span>
+      </div>
+      <button class="w-full whitespace-nowrap border">Оформить заказ</button>
+    </div>
+  </section>
 
 </main>

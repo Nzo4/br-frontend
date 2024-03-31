@@ -7,4 +7,5 @@ export interface Furniture {
   readonly category: string;
   readonly subcategory: string;
   readonly description: Record<string, string>;
+  isActive: boolean;
 } 

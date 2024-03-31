@@ -12,5 +12,8 @@ export const basketReducers = createReducer(
   on(BasketActions.addedItemInBasket, (state, { furniture }) => ({
     ...state,
     furniture: [...state.furniture, furniture],
-  }))
-)
+  })),
+  on(BasketActions.deletedItemFromBasket, (state, { furnitureName }) => ({
+    ...state,
+    furniture: state.furniture.filter(item => item.name !== furnitureName)
+  })))
